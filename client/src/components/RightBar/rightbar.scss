@@ -1,4 +1,18 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .right-bar {
+    @include tablet {
+        .account,
+        .suggest {
+            display: none !important;
+        }
+        .footer {
+            &__link {
+                justify-content: center !important;
+            }
+        }
+    }
     top: 11rem;
     position: sticky;
     &__content {

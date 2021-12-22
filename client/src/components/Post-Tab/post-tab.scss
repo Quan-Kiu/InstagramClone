@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
 .post-tab {
     margin-top: 5rem;
     border-top: thin solid rgba(0, 0, 0, 0.2);
@@ -33,6 +35,10 @@
             width: 100%;
             height: 100%;
             grid-template-columns: repeat(3, 1fr);
+            @include tablet {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             grid-gap: 3rem;
         }
     }

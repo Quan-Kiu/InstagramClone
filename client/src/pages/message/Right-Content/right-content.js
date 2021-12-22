@@ -83,7 +83,7 @@ const RightContent = (props) => {
                     block: 'end',
                 });
             }
-        }, 200);
+        }, 50);
         return () => clearTimeout(autoScroll);
     }, [action, message.conversations.data]);
 
@@ -194,7 +194,7 @@ const RightContent = (props) => {
                     onCloseClick={() => setIsConfirmModalShow(false)}
                 />
             )}
-            {conversation ? (
+            {conversation && conversation._id === action ? (
                 <div className="right-content">
                     <div className="heading">
                         <div className="avatar-message">
