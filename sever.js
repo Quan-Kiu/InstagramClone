@@ -32,4 +32,11 @@ PeerServer({ port: 3001, path: '/' });
 
 routes(app);
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client', 'build'));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+
 http.listen(port, () => console.log(`Listening port ${port}`));
