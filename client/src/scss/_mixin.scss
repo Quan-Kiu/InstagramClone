@@ -1,0 +1,41 @@
+@import './variables';
+
+@mixin flex($align-item, $justify-content) {
+    display: flex;
+    align-items: $align-item;
+    justify-content: $justify-content;
+}
+
+@mixin sm-mobile {
+    @media only screen and (max-width: 319px) {
+        @content;
+    }
+}
+@mixin mobile {
+    @media only screen and (max-width: 575px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin sm-desktop {
+    @media only screen and (max-width: 991px) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media only screen and (max-width: $desktop-width) {
+        @content;
+    }
+}
+
+@mixin res($width) {
+    @media only screen and (max-width: $width) {
+        @content;
+    }
+}

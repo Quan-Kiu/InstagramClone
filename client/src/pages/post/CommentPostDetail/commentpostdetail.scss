@@ -1,0 +1,56 @@
+.comment__item {
+    display: flex;
+    margin-top: 2.5rem;
+    gap: 1.5rem;
+    justify-content: space-between;
+    img {
+        flex-shrink: 0;
+        width: 3rem;
+        height: 3rem;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 50%;
+    }
+    .comment__content-center {
+        flex: 1;
+        .content {
+            font-size: 1.4rem;
+            word-break: break-word;
+            a {
+                font-weight: 600;
+                margin-right: 0.5rem;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            margin-bottom: 1.4rem;
+        }
+        .interact {
+            display: flex;
+            cursor: pointer;
+            gap: 1rem;
+            height: 1.5rem;
+            align-items: center;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            .counter__like__comment,
+            .reply__comment {
+                font-weight: 600;
+            }
+            svg {
+                display: none;
+            }
+        }
+        .interact:hover {
+            svg {
+                display: block;
+            }
+        }
+    }
+    .like-comment-btn {
+        cursor: pointer;
+        margin-top: 0.8rem;
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+}

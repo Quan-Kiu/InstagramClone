@@ -1,0 +1,178 @@
+.show-modal {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+    .content {
+        height: 3rem;
+        line-height: 3rem;
+        padding: 0 4rem;
+        font-size: 1.4rem;
+        font-weight: 600;
+        cursor: pointer;
+        background-color: black;
+    }
+}
+
+.call-modal {
+    position: fixed;
+    z-index: 10000;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    &.hidden {
+        position: relative;
+        width: 10rem;
+        height: 0rem;
+        left: -100%;
+    }
+    &__close {
+        position: absolute;
+        z-index: 1000;
+        right: 4rem;
+        top: 1rem;
+        font-size: 5rem;
+        color: white;
+        cursor: pointer;
+    }
+    &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-filter: blur(15px);
+        -moz-filter: blur(15px);
+        -o-filter: blur(15px);
+        -ms-filter: blur(15px);
+        filter: blur(15px);
+        object-fit: cover;
+        object-position: center;
+        flex-shrink: 0;
+    }
+
+    .handle-call {
+        margin-top: 10rem;
+        display: flex;
+        align-items: center;
+        gap: 5rem;
+        z-index: 10000;
+        svg {
+            position: relative;
+            width: 5rem;
+            height: 5rem;
+        }
+        .handle-call-listen {
+            top: 0.5rem;
+            left: 0.4rem;
+            path {
+                fill: #198754;
+            }
+        }
+        &-stop {
+            transform: rotate(135deg);
+            right: 0.5rem;
+            top: 0.2rem;
+
+            path {
+                fill: #dc3545;
+            }
+        }
+        &-container.active {
+            position: absolute;
+            svg {
+                width: 6rem;
+                height: 6rem;
+            }
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        &-container {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            padding: 1rem;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
+
+    &__container {
+        z-index: 2;
+
+        border-radius: 10px;
+
+        box-shadow: -5px -5px 5px rgba(255, 255, 255, 0.3),
+            10px 10px 5px rgba(0, 0, 0, 0.2),
+            inset -1px -1px 2px rgba(255, 255, 255, 1),
+            inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+
+        border: 30px solid transparent;
+        .call-modal__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 34rem;
+            box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.5),
+                inset -1px -1px 5px rgba(1, 0, 0, 0.5);
+            height: 50rem;
+            gap: 1rem;
+            background-color: rgba(255, 255, 255, 0.6);
+            .call-modal__avatar {
+                img {
+                    width: 12rem;
+                    height: 12rem;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                margin-bottom: 2rem;
+            }
+
+            .call-modal__fullname {
+                font-weight: 500;
+                font-size: 1.6rem;
+            }
+            .call-modal__status {
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .call-timer {
+        font-size: 1.2rem;
+    }
+
+    &::before {
+        z-index: 1;
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-color: black;
+        opacity: 0.1;
+    }
+
+    .media-call {
+        position: absolute;
+        inset: 0;
+        .my-video {
+            position: absolute;
+            width: 20rem;
+            height: 20rem;
+            bottom: 0;
+            right: 2rem;
+        }
+        .friend-video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}

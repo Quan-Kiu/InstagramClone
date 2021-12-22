@@ -1,0 +1,90 @@
+.new-message-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__content {
+        border-radius: 1.5rem;
+        width: 40rem;
+        background: white;
+    }
+    &__heading {
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+    }
+    &__close {
+        cursor: pointer;
+        font-size: 3.5rem;
+        line-height: 1rem;
+    }
+    &__title {
+        font-weight: 600;
+    }
+    &__continue {
+        cursor: pointer;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: #0095f6;
+    }
+
+    &__input {
+        overflow-y: scroll;
+        border: thin solid rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        gap: 2.5rem;
+        max-height: 15rem;
+
+        &__to {
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+        &__recipients {
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        &__recipient {
+            display: inline-block;
+            background-color: #e0f1ff;
+            font-size: 1.4rem;
+            color: #0095f6;
+            width: max-content;
+            padding: 0 1rem;
+            border-radius: 3px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            span {
+                cursor: pointer;
+
+                font-size: 2.4rem;
+            }
+        }
+        &__text {
+            input {
+                &::placeholder {
+                    opacity: 0.6;
+                }
+                font-size: 1.4rem;
+                flex: 1;
+                &:focus {
+                    outline: none;
+                    border: none;
+                }
+                outline: none;
+                border: none;
+            }
+        }
+    }
+
+    &__suggestions {
+        position: relative;
+        padding: 0 1.5rem;
+        overflow-y: scroll;
+        user-select: none;
+        height: 35rem;
+    }
+}

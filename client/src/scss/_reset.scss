@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: unset !important;
+}
+
+body {
+    font-family: $font-family;
+    color: $text-clr;
+    background-color: $background-clr;
+}
+
+input,
+button {
+    font-family: $font-family;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+        color: black;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    display: inline-block;
+}

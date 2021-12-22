@@ -1,0 +1,73 @@
+@import '../variables';
+@import '../mixin';
+
+.profile {
+    user-select: none;
+    img {
+        object-fit: cover;
+    }
+    .dropdown-divider {
+        margin-top: 5rem;
+    }
+    .name {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .username {
+            font-size: 2.6rem;
+            font-weight: 300;
+            margin-right: 0.5rem;
+        }
+
+        .btn {
+            border: thin solid rgba(0, 0, 0, 0.15);
+            font-size: 1.3rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+        }
+        .btn-edit {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .btn-follow {
+            min-width: 8rem;
+            &:focus {
+                box-shadow: none !important;
+
+                border: thin solid rgba(0, 0, 0, 0.2) !important;
+            }
+        }
+
+        svg {
+            cursor: pointer;
+            width: 2.4rem;
+            height: 2.4rem;
+        }
+    }
+
+    .statistical {
+        gap: 4rem;
+        font-size: 1.5rem;
+        @include tablet {
+            gap: 2rem;
+            font-size: 1.4rem;
+            text-align: center;
+        }
+
+        .follow {
+            cursor: pointer;
+        }
+    }
+    .fullname {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    .story {
+        overflow-wrap: break-word;
+        margin-top: 0.5rem;
+        font-size: 1.6rem;
+        white-space: pre-wrap;
+    }
+}

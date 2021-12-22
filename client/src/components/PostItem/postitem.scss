@@ -1,0 +1,66 @@
+.post__item + .post__item {
+    margin-top: 3rem;
+}
+
+.post__item {
+    border-radius: 0.5rem;
+    border: thin solid rgba(0, 0, 0, 0.15);
+
+    position: relative;
+
+    .bottom-post {
+        padding: 1.5rem;
+        background-color: white;
+
+        .counter-like-post {
+            margin-top: 1.5rem;
+            span {
+                font-size: 1.3rem;
+
+                font-weight: 600;
+            }
+        }
+        .content-post {
+            word-wrap: break-word;
+            white-space: pre-wrap;
+
+            margin-top: 1rem;
+            a {
+                font-weight: 600;
+                margin-right: 0.5rem;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        .readmore-btn {
+            font-size: 1.3rem;
+            opacity: 0.6;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        a.view-all-comment {
+            display: block;
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: black;
+        }
+
+        .createdat {
+            margin-top: 0.8rem;
+            text-transform: uppercase;
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+        .dropdown-divider {
+            margin: 0 -1.5rem;
+            margin-top: 2rem;
+        }
+    }
+}

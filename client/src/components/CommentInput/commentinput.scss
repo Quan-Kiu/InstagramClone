@@ -1,0 +1,22 @@
+.comment-input {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    align-items: center;
+
+    input {
+        flex: 1;
+        font-size: 1.4rem;
+        padding-left: 1rem;
+        border: none;
+        outline: none;
+    }
+    .btn-comment {
+        font-size: 1.4rem;
+        color: #0095f7;
+        font-weight: 600;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}

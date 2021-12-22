@@ -1,0 +1,32 @@
+.post-detail__center {
+    .content-post {
+        padding: 2rem 0;
+        padding-bottom: 0;
+        display: flex;
+        gap: 1.5rem;
+        img {
+            flex-shrink: 0;
+            width: 3rem;
+            height: 3rem;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+        .content {
+            font-size: 1.4rem;
+            margin-bottom: -1.5rem;
+            word-break: break-word;
+            white-space: pre-line;
+            .top {
+                margin-bottom: 1rem;
+                span {
+                    font-weight: 600;
+                    margin-right: 0.5rem;
+                }
+            }
+            .createdat {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}

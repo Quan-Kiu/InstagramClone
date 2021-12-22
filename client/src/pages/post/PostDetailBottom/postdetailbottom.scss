@@ -1,0 +1,23 @@
+.post-detail-bottom {
+    padding: 1.5rem;
+    flex: 1;
+    .interact {
+        margin-bottom: 1.5rem;
+    }
+    .counter-like-post {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    .createdat-post {
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin: 0.5rem 0;
+        margin-bottom: 1.5rem;
+    }
+    .dropdown-divider {
+        margin: 0 -1.5rem;
+    }
+    .comment-input {
+        padding-top: 1rem;
+    }
+}

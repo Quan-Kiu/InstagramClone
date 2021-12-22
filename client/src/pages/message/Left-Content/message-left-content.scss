@@ -1,0 +1,86 @@
+.left-content {
+    border: thin solid rgba(0, 0, 0, 0.1);
+
+    .heading {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        border-bottom: thin solid rgba(0, 0, 0, 0.1);
+        height: 6rem;
+
+        span {
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-align: center;
+            flex: 1;
+            user-select: none;
+        }
+
+        svg {
+            cursor: pointer;
+        }
+    }
+    .message-list {
+        height: 50rem;
+        padding: 1rem 0rem;
+        overflow: auto;
+        .message-item {
+            &.active {
+                background-color: rgba(0, 0, 0, 0.1);
+                pointer-events: none;
+            }
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            gap: 1.5rem;
+            .message-time {
+                font-size: 1.2rem;
+                display: inline-block;
+            }
+
+            .avatar-user {
+                position: relative;
+                .dot-online {
+                    position: absolute;
+                    width: 1.6rem;
+                    height: 1.6rem;
+                    border: 2px solid white;
+                    border-radius: 50%;
+                    right: 0;
+                    bottom: 0;
+                }
+                img {
+                    width: 5rem;
+                    height: 5rem;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+            }
+            .message-content {
+                font-size: 1.4rem;
+
+                flex: 1;
+                .content {
+                    opacity: 0.8;
+                }
+                span {
+                    margin: 0 0.5rem;
+                }
+            }
+            .isRead {
+                width: 0.8rem;
+                height: 0.8rem;
+                background-color: #0095f6;
+                border-radius: 50%;
+                flex-shrink: 0;
+            }
+        }
+        .message-item:hover {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.explore {
+    margin-bottom: 4rem;
+    &__list {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 3rem;
+    }
+    .my-post__item:nth-child(1) {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row: 1 / span 2;
+        height: 63rem;
+    }
+}

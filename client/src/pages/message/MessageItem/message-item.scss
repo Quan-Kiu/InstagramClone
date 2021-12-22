@@ -1,0 +1,162 @@
+.message__item {
+    .message__createdAt {
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 1rem 0rem;
+    }
+    .send-like-icon {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .message-text-content {
+        padding: 1rem 2rem;
+        border: thin solid rgba(0, 0, 0, 0.1);
+        border-radius: 2rem;
+        cursor: default;
+        word-wrap: break-word;
+        max-width: 30rem;
+        &.call {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .icon-call {
+            padding: 1rem;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.1);
+            svg {
+                position: relative;
+                top: 0.1rem;
+                left: 0.2rem;
+                path {
+                    fill: #198754;
+                }
+            }
+            &.active {
+                path {
+                    fill: #dc3545ed;
+                }
+            }
+        }
+        .call-content {
+            font-weight: 600;
+            .time-call {
+                font-weight: 400;
+            }
+        }
+    }
+    .message-media-content {
+        flex-shrink: 0;
+        img,
+        video {
+            position: relative;
+            width: 25rem;
+            border-radius: 2rem;
+            object-fit: contain;
+        }
+    }
+    .friend-message {
+        .more-handle-message__modal {
+            &-func {
+                left: -4rem;
+                &::after {
+                    left: 2rem;
+                }
+            }
+        }
+    }
+    .your-message {
+        display: flex;
+        align-self: flex-end;
+        justify-content: flex-end;
+        gap: 1rem;
+
+        & > * {
+            order: 3;
+        }
+        svg.more-icon {
+            order: 2;
+        }
+        .more-handle-message__modal {
+            order: 1;
+        }
+        .message-text-content {
+            background-color: #efefef;
+            border: none;
+        }
+    }
+
+    .hover {
+        svg.more-icon {
+            display: none !important;
+        }
+    }
+    .hover:hover {
+        svg.more-icon {
+            display: block !important;
+        }
+    }
+
+    .more-handle-message__modal {
+        display: flex;
+        align-items: center;
+
+        &-func {
+            position: relative;
+            color: white;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            bottom: 4rem;
+            left: 4rem;
+            gap: 1rem;
+            padding: 1rem;
+            &::after {
+                content: ' ';
+                position: absolute;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: black;
+                transform: rotate(-45deg);
+                bottom: -0.75rem;
+                z-index: -1;
+                right: 2rem;
+            }
+            .handle-message__item {
+                cursor: pointer;
+                font-weight: 600;
+            }
+            input {
+                width: 0;
+                height: 0;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+
+    svg.more-icon {
+        cursor: pointer;
+        display: none;
+        align-self: center;
+        position: relative;
+    }
+    .friend-message {
+        display: flex;
+        gap: 1rem;
+        .friend-message-avatar {
+            width: 3rem;
+            height: 3rem;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+    .message__item.friend + .message__item.friend {
+        .friend-message-avatar {
+            opacity: 0;
+        }
+    }
+}

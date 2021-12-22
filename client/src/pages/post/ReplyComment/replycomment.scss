@@ -1,0 +1,45 @@
+.reply {
+    margin-top: 2rem;
+    &-show {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        opacity: 0.6;
+        cursor: pointer;
+        font-weight: 600;
+        .divider {
+            width: 2.5rem;
+            height: 0.1rem;
+            background: black;
+            margin-right: 1rem;
+        }
+    }
+
+    &__list {
+        .reply__item {
+            margin-top: 2rem;
+            display: flex;
+            .reply__content {
+                margin: 0 2rem;
+            }
+            .content {
+                flex: 1;
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+            .interact {
+                height: 2rem;
+            }
+            .like-btn {
+                width: 1.2rem;
+                margin-left: auto;
+                flex-shrink: 0;
+                height: 1.2rem;
+                margin-top: 0.5rem;
+                margin-right: -2.6rem;
+                cursor: pointer;
+            }
+        }
+    }
+}

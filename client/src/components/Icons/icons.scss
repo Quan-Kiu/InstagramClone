@@ -1,0 +1,32 @@
+.reactions {
+    display: grid;
+    grid-template-columns: repeat(4, 5rem);
+    text-align: center;
+    cursor: pointer;
+}
+.reactions span {
+    margin: 5px 0;
+    font-size: 1.6rem;
+}
+
+.icons {
+    position: relative;
+    .icon__content {
+        position: fixed;
+        width: 100vw;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    .icons__list {
+        bottom: 2rem;
+        right: 2rem;
+        padding: 0.5rem;
+        background-color: white;
+        border-radius: 0.2rem;
+        box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(0, 0, 0, 0.1);
+        position: absolute;
+        user-select: none;
+        display: block !important;
+    }
+}

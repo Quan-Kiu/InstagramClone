@@ -1,0 +1,40 @@
+.follow-list__item {
+    align-items: center;
+    margin-top: 0.8rem;
+    gap: 0.6rem;
+    .btn-follow {
+        flex-shrink: 0;
+        font-size: 1.3rem;
+    }
+    img {
+        flex-shrink: 0;
+        width: 4rem;
+        height: 4rem;
+        padding: 0.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    .follow-list__item__infos {
+        flex: 1;
+        &-username {
+            &:hover {
+                text-decoration: underline;
+            }
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: black;
+        }
+        &-fullname {
+            width: 20rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 1.3rem;
+            color: rgba(0, 0, 0, 0.5);
+        }
+    }
+    .btn-follow {
+        border: thin solid rgba(0, 0, 0, 0.2);
+        font-weight: 600;
+    }
+}

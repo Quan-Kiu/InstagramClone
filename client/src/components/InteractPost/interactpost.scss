@@ -1,0 +1,31 @@
+.interact {
+    position: relative;
+    svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+
+    .center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 0.5rem;
+        span {
+            width: 0.6rem;
+            height: 0.6rem;
+            transition: 0.2s ease;
+            background-color: #ccc;
+            border-radius: 50%;
+        }
+    }
+    .left {
+        svg + svg {
+            margin-left: 1.5rem;
+        }
+    }
+}

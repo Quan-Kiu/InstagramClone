@@ -1,0 +1,25 @@
+.comment {
+    .comment__item {
+        .commenter {
+            font-weight: 600;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        .content {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-right: 1rem;
+            flex: 1;
+        }
+        svg {
+            width: 1.2rem;
+            height: 1.2rem;
+            cursor: pointer;
+        }
+        gap: 0.5rem;
+        margin-top: 0.8rem;
+        font-size: 1.3rem;
+    }
+}

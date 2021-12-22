@@ -1,0 +1,94 @@
+.right-bar {
+    top: 11rem;
+    position: sticky;
+    &__content {
+        .account {
+            margin-bottom: 2rem;
+            gap: 2rem;
+            font-size: 1.4rem;
+            &__avatar {
+                flex-shrink: 0;
+                width: 5.5rem;
+                height: 5.5rem;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            &__infos {
+                .username {
+                    font-weight: 600;
+                }
+                .fullname {
+                    opacity: 0.6;
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                }
+            }
+
+            .visit-profile {
+                font-weight: 600;
+                font-size: 1.2rem;
+                color: #2ca7f7;
+                margin-left: auto;
+            }
+        }
+
+        .suggest {
+            .title {
+                font-size: 1.3rem;
+                font-weight: 700;
+
+                span {
+                    flex: 1;
+                    opacity: 0.4;
+                }
+                a {
+                    font-size: 1.2rem;
+                    color: black;
+                    font-weight: 500;
+                }
+            }
+            &__list {
+                position: relative;
+                .follow-list__item {
+                    width: 100%;
+                    padding: 0 !important;
+                    .follow-list__item__infos-fullname {
+                        width: max-content;
+                        font-size: 1.1rem;
+                    }
+                    .btn:focus {
+                        box-shadow: none;
+                    }
+                    .btn-follow {
+                        padding: 0;
+                        background: none !important;
+                        opacity: 1 !important;
+                        outline: none !important;
+                        border: none !important;
+                        color: var(--bs-primary);
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+        .footer {
+            width: 100%;
+            margin-top: 2rem;
+            .container {
+                width: 100%;
+            }
+            .footer__link {
+                grid-gap: 0.5rem;
+                justify-content: flex-start;
+                font-size: 1.1rem;
+                opacity: 0.6;
+            }
+            .copyright {
+                text-align: left !important;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

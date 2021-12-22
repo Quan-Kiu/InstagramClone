@@ -1,0 +1,31 @@
+.account-edit {
+    background-color: white;
+    border: thin solid #cccccc;
+
+    .left-content {
+        padding: 0;
+        border-right: thin solid #cccccc;
+        a {
+            opacity: 0.9;
+
+            &:active {
+                opacity: 0.5;
+            }
+
+            &.active {
+                font-weight: 600;
+                border-left: 2px solid black;
+            }
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.02);
+            }
+            color: black;
+            display: block;
+            font-size: 1.5rem;
+            padding: 1.5rem 2rem;
+        }
+    }
+    .right-content {
+        padding: 2rem 3rem;
+    }
+}

@@ -1,0 +1,18 @@
+input[type='file']::-webkit-file-upload-button {
+    visibility: hidden;
+}
+input[type='file']::before {
+    content: 'Thay đổi ảnh đại diện';
+    display: inline-block;
+    color: #0095f6;
+    font-size: 1.3rem;
+    outline: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-weight: 600;
+}
+
+input[type='file'] {
+    color: transparent;
+}

@@ -1,0 +1,9 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
+.logo {
+    user-select: none;
+    font-family: $second-font;
+    font-size: 2.4rem;
+    display: block;
+}

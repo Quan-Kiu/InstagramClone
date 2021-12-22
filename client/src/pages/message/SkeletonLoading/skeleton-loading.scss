@@ -1,0 +1,78 @@
+.skeleton-loader:empty {
+    display: block;
+    background-color: #bdc3c7 !important;
+    border-color: #bdc3c7 !important;
+    animation-name: skeletonAnimation;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &.others {
+        height: 200px;
+    }
+
+    &.prod-name {
+        height: 20px;
+    }
+
+    &.prod-description {
+        width: 80%;
+        height: calc(100% - 30px);
+    }
+}
+
+@keyframes skeletonAnimation {
+    0% {
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.8;
+    }
+}
+
+/*From here the styles are for demo purpose only*/
+.skeleton-loading {
+    position: absolute;
+    left: 0;
+    padding: 1.5rem;
+    display: flex;
+    width: 100%;
+    border-radius: 6px;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+
+    .row {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0 1rem;
+
+        .prod-img {
+            border: 1px solid lightgray;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+        }
+
+        .details {
+            width: calc(100% - 95px);
+            height: 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            .prod-description {
+                border-radius: 10px;
+                width: 8rem;
+            }
+            .prod-name {
+                width: 12rem;
+                border-radius: 10px;
+            }
+        }
+    }
+}

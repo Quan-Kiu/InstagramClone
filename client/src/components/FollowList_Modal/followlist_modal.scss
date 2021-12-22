@@ -1,0 +1,32 @@
+.follow-list {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10000;
+    &__close {
+        position: absolute;
+        cursor: pointer;
+        right: 1rem;
+        top: -1rem;
+        font-size: 4rem;
+    }
+    &__content {
+        position: relative;
+        width: 40rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        position: relative;
+
+        .title {
+            padding: 1rem 0;
+            font-size: #ccc;
+            border-bottom: thin solid rgba(0, 0, 0, 0.15);
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+        &__list {
+            height: 35rem;
+            overflow-y: auto;
+        }
+    }
+}

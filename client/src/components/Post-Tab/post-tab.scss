@@ -1,0 +1,39 @@
+.post-tab {
+    margin-top: 5rem;
+    border-top: thin solid rgba(0, 0, 0, 0.2);
+    &__name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 6rem;
+
+        .name {
+            min-width: 8.5rem;
+            &.active {
+                border-top: thin solid black;
+                opacity: 1;
+            }
+            text-transform: uppercase;
+            opacity: 0.5;
+            cursor: pointer;
+            padding: 1.5rem 0;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+
+            svg {
+                width: 1.4rem !important;
+                height: 1.4rem !important;
+            }
+        }
+    }
+    &__content {
+        .my-post__list {
+            display: grid;
+            width: 100%;
+            height: 100%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 3rem;
+        }
+    }
+}
