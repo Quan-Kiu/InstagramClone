@@ -9,15 +9,12 @@ const socketSever = require('./socketSever');
 const port = process.env.PORT || 5000;
 const app = express();
 const { ExpressPeerServer } = require('peer');
-const origin =
-    process.env.NODE_ENV === 'production'
-        ? 'http://qkmedia.herokuapp.com/'
-        : 'http://localhost:3000/';
 
 // Connect DB
 db.connect();
+
 // Middleware
-app.use(cors({ credentials: true, origin }));
+app.use(cors({ credentials: true, origin: `http://localhost:3000` }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());

@@ -51,8 +51,8 @@ function App() {
     useEffect(() => {
         if (auth.token) {
             const newPeer = new Peer(undefined, {
-                host: '/',
-                port: 3001,
+                path: '/',
+                secure: true,
             });
             dispatch(setPeer(newPeer));
         }
