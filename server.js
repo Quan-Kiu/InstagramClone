@@ -14,7 +14,7 @@ const { ExpressPeerServer } = require('peer');
 db.connect();
 
 // Middleware
-app.use(cors({ credentials: true, origin: `http://localhost:${port}` }));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
