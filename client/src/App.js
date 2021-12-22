@@ -22,7 +22,6 @@ import Suggestions from './pages/suggestions';
 function App() {
     const { auth, alert, call } = useSelector((state) => state);
     const dispatch = useDispatch();
-    const history = useHistory();
 
     useEffect(() => {
         dispatch(refreshToken(''));
