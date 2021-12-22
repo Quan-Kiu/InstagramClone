@@ -11,12 +11,11 @@ const app = express();
 const { ExpressPeerServer } = require('peer');
 const origin =
     process.env.NODE_ENV === 'production'
-        ? 'https://qkmedia.herokuapp.com/'
-        : 'http://localhost:3000';
+        ? 'http://qkmedia.herokuapp.com/'
+        : 'http://localhost:3000/';
 
 // Connect DB
 db.connect();
-
 // Middleware
 app.use(cors({ credentials: true, origin }));
 app.use(express.json());
