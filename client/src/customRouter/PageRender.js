@@ -21,7 +21,9 @@ const PageRender = () => {
     let pageName = '';
 
     if (auth.token) {
-        if (page !== 'login' && page !== 'register') {
+        if (auth.user.following.length <= 0) {
+            pageName = 'suggestions';
+        } else if (page !== 'login' && page !== 'register') {
             if (action) pageName = `${page}/[slug]`;
             else pageName = page;
         }

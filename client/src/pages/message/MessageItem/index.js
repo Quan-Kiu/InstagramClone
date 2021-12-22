@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { AudioCallIcon, MoreIcon, UnlikeIcon } from '../../../assets/icons';
+import {
+    AudioCallIcon,
+    MoreIcon,
+    UnlikeIcon,
+    VideoCallIcon,
+} from '../../../assets/icons';
 import Settings from '../../../components/Settings';
 import { setAlert } from '../../../redux/reducer/alertSlice';
 import { deleteMessage } from '../../../redux/reducer/messageSlice';
@@ -31,6 +36,8 @@ const MessageItem = ({ mess, friend, isShowTime }) => {
             handle: () => setConfirmDeleteMessageShow(false),
         },
     ];
+
+    const isSender = mess.sender._id === auth.user._id;
     const handleMessageList = [
         friend
             ? {
@@ -108,10 +115,17 @@ const MessageItem = ({ mess, friend, isShowTime }) => {
                         (mess.call.answer ? (
                             <div className="message-text-content call">
                                 <div className="icon-call">
-                                    <AudioCallIcon />
+                                    {mess.call.video ? (
+                                        <VideoCallIcon />
+                                    ) : (
+                                        <AudioCallIcon />
+                                    )}
                                 </div>
                                 <div className="call-content">
-                                    Đã kết thúc cuộc gọi.
+                                    {mess.call.video
+                                        ? 'Chát video'
+                                        : 'Cuộc gọi thoại'}
+
                                     <div className="time-call">
                                         {formatTime(
                                             Math.floor(mess.call.times / 60000)
@@ -126,12 +140,20 @@ const MessageItem = ({ mess, friend, isShowTime }) => {
                         ) : (
                             <div className="message-text-content call">
                                 <div className="icon-call active">
-                                    <AudioCallIcon />
+                                    {mess.call.video ? (
+                                        <VideoCallIcon />
+                                    ) : (
+                                        <AudioCallIcon />
+                                    )}
                                 </div>
                                 <div className="call-content">
-                                    {mess.sender._id !== auth.user._id
-                                        ? 'Bạn đã nhỡ 1 cuộc gọi.'
-                                        : 'Kết thúc cuộc gọi'}
+                                    {isSender
+                                        ? mess.call.video
+                                            ? 'Chát video'
+                                            : 'Cuộc gọi thoại'
+                                        : mess.call.video
+                                        ? 'Cuộc gọi video bị nhỡ'
+                                        : 'Cuộc gọi thoại bị nhớ'}
                                     <div className="time-call">
                                         {dateTime(mess.createdAt)}
                                     </div>

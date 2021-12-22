@@ -78,11 +78,14 @@ const RightContent = (props) => {
     useEffect(() => {
         const autoScroll = setTimeout(() => {
             if (messageListRef.current) {
-                messageListRef.current.scrollIntoView(false);
+                messageListRef.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'end',
+                });
             }
         }, 200);
         return () => clearTimeout(autoScroll);
-    }, [action, message.data, message.conversations.data]);
+    }, [action, message.conversations.data]);
 
     const handleScrollToTop = (e) => {
         if (e.target.scrollTop === 0) {

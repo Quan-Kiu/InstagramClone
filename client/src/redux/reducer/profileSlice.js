@@ -14,7 +14,7 @@ export const getProfile = createAsyncThunk(
             const res = await getData(`user/${params}`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );

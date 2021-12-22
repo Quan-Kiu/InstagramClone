@@ -11,21 +11,33 @@ const AuthController = {
             if (user_name)
                 return res
                     .status(400)
-                    .json({ message: 'This Username already exists.' });
-            if (username.length < 5)
+                    .json({ message: 'Tên tài khoản đã tồn tại.' });
+            if (username.length < 6)
                 return res.status(400).json({
-                    message: 'Username must be at least 5 characters.',
+                    message: 'Tên tài khoản nhiều hơn 6 ký tự.',
+                });
+            if (username.length > 30)
+                return res.status(400).json({
+                    message: 'Tên tài khoản không quá 30 ký tự.',
+                });
+            if (fullname.length < 6)
+                return res.status(400).json({
+                    message: 'Họ tên nhiều hơn 6 ký tự.',
+                });
+            if (fullname.length > 30)
+                return res.status(400).json({
+                    message: 'Họ tên không quá 30 ký tự.',
                 });
 
             const user_email = await Users.findOne({ email });
             if (user_email)
                 return res
                     .status(400)
-                    .json({ message: 'This Email already exists.' });
+                    .json({ message: 'Email này đã tồn tại.' });
 
             if (password.length < 6)
                 return res.status(400).json({
-                    message: 'Password must be at least 6 characters.',
+                    message: 'Mật khẩu nhiều hơn 6 ký tự.',
                 });
             const hashPassword = await bcrypt.hash(password, 12);
 
@@ -48,7 +60,7 @@ const AuthController = {
             await newUser.save();
 
             return res.status(201).json({
-                message: 'Created successfully, Please Login',
+                message: 'Tạo tài khoản thành cống, vui lòng đăng nhập.',
                 accessToken,
                 user: {
                     ...newUser._doc,
@@ -69,13 +81,13 @@ const AuthController = {
             );
             if (!user)
                 return res.status(400).json({
-                    message: 'This Email does not exist',
+                    message: 'Email không tồn tại.',
                 });
 
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch)
                 return res.status(400).json({
-                    message: 'Password is not correct',
+                    message: 'Sai mật khẩu.',
                 });
 
             const accessToken = createAccessToken({ id: user._id });
@@ -88,7 +100,7 @@ const AuthController = {
             });
 
             return res.status(201).json({
-                message: 'Login successfully',
+                message: 'Đăng nhập thành công.',
                 accessToken,
                 user: {
                     ...user._doc,
@@ -103,7 +115,7 @@ const AuthController = {
     logout: async (req, res) => {
         try {
             res.clearCookie('refreshtoken', { path: '/api/refresh_token' });
-            return res.status(200).json({ message: 'Logged out' });
+            return res.status(200).json({ message: 'Đăng xuất thành công' });
         } catch (err) {
             return res.status(500).json({ message: err.message });
         }
@@ -113,7 +125,9 @@ const AuthController = {
         try {
             const rf_token = req.cookies.refreshtoken;
             if (!rf_token) {
-                return res.status(400).json({ message: 'Please login now' });
+                return res
+                    .status(400)
+                    .json({ message: 'Vui lòng đăng nhập lại.' });
             }
 
             jwt.verify(
@@ -123,7 +137,7 @@ const AuthController = {
                     if (err)
                         return res
                             .status(400)
-                            .json({ message: 'Please login now' });
+                            .json({ message: 'Vui lòng đăng nhập lại.' });
                     const user = await Users.findById(result.id)
                         .select('-password')
                         .populate('followers following', '-password')
@@ -131,7 +145,7 @@ const AuthController = {
                     if (!user)
                         return res
                             .status(400)
-                            .json({ message: 'This does not exist.' });
+                            .json({ message: 'Tài khoản không tồn tại.' });
                     const accessToken = createAccessToken({ id: result.id });
                     res.status(200).json({ accessToken: accessToken, user });
                 }
@@ -149,7 +163,7 @@ const createAccessToken = (payload) => {
 };
 const refreshAccessToken = (payload) => {
     return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
-        expiresIn: '30d',
+        expiresIn: '15d',
     });
 };
 

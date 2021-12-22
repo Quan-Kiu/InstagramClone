@@ -15,7 +15,7 @@ export const createNotify = createAsyncThunk(
             const res = await postData(`notify/create`, params);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -26,7 +26,7 @@ export const getNotifies = createAsyncThunk(
             const res = await getData(`notify`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -38,7 +38,7 @@ export const isReadNotify = createAsyncThunk(
             dispatch(getNotifies());
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );

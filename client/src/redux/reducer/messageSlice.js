@@ -42,7 +42,7 @@ export const createMessage = createAsyncThunk(
             }
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -51,12 +51,12 @@ export const getMessages = createAsyncThunk(
     async (params, { rejectWithValue }) => {
         try {
             const res = await getData(
-                `message/${params.id}?page=${params.page}&limit=20`
+                `message/${params.id}?page=${params.page}&limit=10`
             );
 
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -69,7 +69,7 @@ export const getConversation = createAsyncThunk(
 
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -80,7 +80,7 @@ export const updateIsRead = createAsyncThunk(
             await getData(`message/updateconversation/${params}`);
             return params;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -93,7 +93,7 @@ export const deleteMessage = createAsyncThunk(
             dispatch(removeMessage({ message: res.deleted }));
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -106,7 +106,7 @@ export const deleteConversation = createAsyncThunk(
             dispatch(setAlert({ type: 'bottomAlert', text: res.message }));
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );

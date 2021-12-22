@@ -50,6 +50,7 @@ const CallModal = (props) => {
                 call: {
                     answer,
                     times: 0,
+                    video: call.data.video,
                 },
                 createdAt: new Date().toISOString(),
             };
@@ -172,6 +173,7 @@ const CallModal = (props) => {
             call: {
                 answer,
                 times: callTimer,
+                video: call.data.video,
             },
             createdAt: new Date().toISOString(),
         };

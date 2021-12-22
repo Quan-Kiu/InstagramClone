@@ -184,7 +184,7 @@ const userController = {
         try {
             const newArr = [...req.user.following, req.user._id];
 
-            const num = req.query.num || 5;
+            const num = req.query.num || 50;
 
             const users = await Users.aggregate([
                 { $match: { _id: { $nin: newArr } } },

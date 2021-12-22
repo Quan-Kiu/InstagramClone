@@ -43,7 +43,7 @@ export const getPosts = createAsyncThunk(
 
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -55,7 +55,7 @@ export const getPostsExplore = createAsyncThunk(
             const res = await getData(`posts/getPostsExplore`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -66,7 +66,7 @@ export const getPostsByUser = createAsyncThunk(
             const res = await getData(`posts/getByUser/${params}`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -77,7 +77,7 @@ export const getPostById = createAsyncThunk(
             const res = await getData(`post/${params}`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -88,7 +88,7 @@ export const getPostsSavedByUser = createAsyncThunk(
             const res = await getData(`posts/getSavedByUser/${params}`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -99,7 +99,7 @@ export const createPost = createAsyncThunk(
             const res = await authApi.postData('posts/create', params);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -111,7 +111,7 @@ export const likePost = createAsyncThunk(
 
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -123,7 +123,7 @@ export const unlikePost = createAsyncThunk(
 
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -135,7 +135,7 @@ export const savePost = createAsyncThunk(
             const res = await authApi.patchData(`post/${params}/save`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -146,7 +146,7 @@ export const unsavePost = createAsyncThunk(
             const res = await authApi.patchData(`post/${params}/unsave`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -159,7 +159,7 @@ export const commnentPost = createAsyncThunk(
             });
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -170,7 +170,7 @@ export const deletePost = createAsyncThunk(
             const res = await authApi.deleteData(`post/${params}/delete`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );

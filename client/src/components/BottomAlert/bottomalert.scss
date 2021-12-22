@@ -8,17 +8,17 @@
     left: 0;
     color: white;
     padding: 1rem 2rem;
-    animation: fadeInAndOut 4s forwards ease-in-out;
+    animation: fadeInAndOut 5s forwards ease-in-out;
 }
 
 @keyframes fadeInAndOut {
     0% {
         bottom: -10rem;
     }
-    10% {
+    5% {
         bottom: 0;
     }
-    90% {
+    95% {
         bottom: 0;
     }
     100% {

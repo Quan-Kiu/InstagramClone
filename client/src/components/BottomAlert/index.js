@@ -9,7 +9,7 @@ const BottomAlert = (props) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             dispatch(setAlert({ type: 'bottomAlert', text: '' }));
-        }, 4000);
+        }, 5000);
 
         return () => {
             clearTimeout(timer);

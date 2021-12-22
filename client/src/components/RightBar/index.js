@@ -1,13 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { createNotify } from '../../redux/reducer/notifySlice';
 import { follow, unFollow } from '../../redux/reducer/userSlice';
 import FollowItem from '../FollowItem';
 import Footer from '../Footer';
-import './rightbar.scss';
 import Loading1 from '../Loading1';
-import { createNotify } from '../../redux/reducer/notifySlice';
-import { setAlert } from '../../redux/reducer/alertSlice';
+import './rightbar.scss';
 
 const RightBar = (props) => {
     const user = useSelector((state) => state.user);
@@ -55,21 +54,7 @@ const RightBar = (props) => {
                 <div className="suggest">
                     <div className="title d-flex justify-content-between align-items-center">
                         <span>Gợi ý cho bạn</span>
-                        <Link
-                            to="/suggest"
-                            onClick={(e) => {
-                                e.preventDefault();
-
-                                dispatch(
-                                    setAlert({
-                                        type: 'bottomAlert',
-                                        text: 'Đang xây dựng.',
-                                    })
-                                );
-                            }}
-                        >
-                            Xem tất cả
-                        </Link>
+                        <Link to="/suggestions">Xem tất cả</Link>
                     </div>
                     {user.suggestions.loading && (
                         <div className="text-center">
@@ -78,16 +63,18 @@ const RightBar = (props) => {
                     )}
                     <div className="suggest__list">
                         {user.suggestions.users.length > 0 &&
-                            user.suggestions.users.map((item, index) => (
-                                <FollowItem
-                                    key={index}
-                                    follower={item}
-                                    handle={{
-                                        onFollow: handleFollow,
-                                        onUnfollow: handleUnfollow,
-                                    }}
-                                />
-                            ))}
+                            user.suggestions.users
+                                .filter((item, index) => index < 5)
+                                .map((item, index) => (
+                                    <FollowItem
+                                        key={index}
+                                        follower={item}
+                                        handle={{
+                                            onFollow: handleFollow,
+                                            onUnfollow: handleUnfollow,
+                                        }}
+                                    />
+                                ))}
                     </div>
                 </div>
                 <Footer />

@@ -32,7 +32,7 @@ export const follow = createAsyncThunk(
             socket.emit('followUser', followId);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -45,7 +45,7 @@ export const unFollow = createAsyncThunk(
             dispatch(update(user._id));
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -56,7 +56,7 @@ export const suggestionsUser = createAsyncThunk(
             const res = await getData(`user/suggestions`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );

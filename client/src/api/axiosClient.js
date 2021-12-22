@@ -24,7 +24,10 @@ axiosClient.interceptors.response.use(
     },
     (error) => {
         // Handle errors
-        throw error;
+        if (error.response.data.message === 'jwt expired') {
+            return window.location.reload();
+        }
+        throw error.response.data;
     }
 );
 

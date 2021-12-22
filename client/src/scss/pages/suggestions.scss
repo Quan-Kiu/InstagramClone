@@ -1,0 +1,17 @@
+.suggestions {
+    display: flex;
+    justify-content: center;
+    &__container {
+        width: 60rem;
+        margin: 4rem 0;
+    }
+    &__title {
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    &__list {
+        padding: 1rem 0;
+        background-color: white;
+    }
+}

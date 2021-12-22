@@ -9,6 +9,8 @@ import {
     handleSuccess,
     register,
 } from '../redux/reducer/authSlice';
+
+import { setAlert } from '../redux/reducer/alertSlice';
 import '../scss/pages/register.scss';
 
 const Register = (props) => {
@@ -58,7 +60,17 @@ const Register = (props) => {
                         <div className="register__content__sub-logo text-gray opacity-75">
                             Đăng ký để xem ảnh và video từ bạn bè.
                         </div>
-                        <button className="btn btn-primary text-white mt-4 mb-4">
+                        <button
+                            className="btn-login-fb btn btn-primary text-white mt-4 mb-4"
+                            onClick={() =>
+                                dispatch(
+                                    setAlert({
+                                        type: 'bottomAlert',
+                                        text: 'Chức năng đang xây dựng.',
+                                    })
+                                )
+                            }
+                        >
                             Đăng nhập bằng Facebook
                         </button>
                         <div className="hr mb-4 opacity-75">

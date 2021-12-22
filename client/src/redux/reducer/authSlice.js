@@ -15,7 +15,7 @@ export const login = createAsyncThunk(
             const res = await postData('login', params);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -27,7 +27,7 @@ export const update = createAsyncThunk(
             const res = await getData(`user/${params}`);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -39,7 +39,7 @@ export const register = createAsyncThunk(
             const res = await postData('register', params);
             return res;
         } catch (error) {
-            return rejectWithValue(error.response.data);
+            return rejectWithValue(error);
         }
     }
 );
@@ -51,7 +51,7 @@ export const logout = createAsyncThunk(
             await postData('logout');
             window.location.href = '/';
         } catch (error) {
-            console.log(rejectWithValue(error.response.data));
+            console.log(rejectWithValue(error));
         }
     }
 );
@@ -65,7 +65,7 @@ export const refreshToken = createAsyncThunk(
                 const res = await postData('refresh_token');
                 return res;
             } catch (error) {
-                return rejectWithValue(error.response.data);
+                return rejectWithValue(error);
             }
         }
         return rejectWithValue();

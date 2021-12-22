@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, useHistory } from 'react-router-dom';
 import Header from './components/Header';
 import PageRender from './customRouter/PageRender';
 import Home from './pages/home';
@@ -17,10 +17,12 @@ import BottomAlert from './components/BottomAlert';
 import CallModal from './components/CallModal';
 import Peer from 'peerjs';
 import { setPeer } from './redux/reducer/peerSlice';
+import Suggestions from './pages/suggestions';
 
 function App() {
     const { auth, alert, call } = useSelector((state) => state);
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(refreshToken(''));
@@ -44,7 +46,7 @@ function App() {
         if (auth.token) {
             dispatch(suggestionsUser());
         }
-    }, [auth.token, dispatch, auth.user.followers]);
+    }, [auth.token, dispatch]);
 
     useEffect(() => {
         if (auth.token) {
@@ -66,8 +68,17 @@ function App() {
                 {auth.token && <Header />}
                 {auth.token && <SocketClient />}
 
-                <Route exact path="/" component={auth.token ? Home : Login} />
-
+                <Route
+                    exact
+                    path="/"
+                    component={
+                        auth.user.following <= 0
+                            ? Suggestions
+                            : auth.token
+                            ? Home
+                            : Login
+                    }
+                />
                 <Route exact path="/:page/:action" component={PageRender} />
                 <Route exact path="/:page" component={PageRender} />
             </div>

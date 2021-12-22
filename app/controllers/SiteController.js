@@ -1,4 +1,3 @@
-const { maxRecordSize } = require('npmlog');
 const User = require('../modules/user');
 
 const SiteController = {
