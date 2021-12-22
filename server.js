@@ -10,14 +10,14 @@ const port = process.env.PORT || 5000;
 const app = express();
 const { ExpressPeerServer } = require('peer');
 
-// Connect DB
-db.connect();
-
 // Middleware
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// Connect DB
+db.connect();
 
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
