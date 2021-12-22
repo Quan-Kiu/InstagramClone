@@ -52,6 +52,7 @@ function App() {
             const newPeer = new Peer(undefined, {
                 path: '/',
                 secure: true,
+                host: 'qkmedia.herokuapp.com',
             });
             dispatch(setPeer(newPeer));
         }
