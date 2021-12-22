@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-    baseURL: 'http://localhost:5000/',
+    baseURL: 'https://qkmedia.herokuapp.com/',
     withCredentials: true,
     headers: {
         'content-type': 'application/json',
