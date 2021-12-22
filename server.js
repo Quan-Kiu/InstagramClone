@@ -8,7 +8,7 @@ const cors = require('cors');
 const socketSever = require('./socketSever');
 const port = process.env.PORT || 5000;
 const app = express();
-const { PeerServer } = require('peer');
+const { ExpressPeerServer } = require('peer');
 
 // Connect DB
 db.connect();
@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
     socketSever(socket);
 });
 
-PeerServer({ port: 3001, path: '/' });
+ExpressPeerServer(http, { path: '/' });
 
 routes(app);
 
