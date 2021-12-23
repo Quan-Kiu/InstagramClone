@@ -20,7 +20,12 @@ const Notify = (props) => {
 
     return (
         <div className="notify">
-            <input type="text" autoFocus={true} onBlur={props.onClose} />
+            <input
+                type="text"
+                readOnly={true}
+                autoFocus={true}
+                onBlur={props.onClose}
+            />
             <div
                 className="notify__content"
                 onMouseDown={(e) => e.preventDefault()}

@@ -30,7 +30,11 @@ const Dropdown = (props) => {
 
     return (
         <div className="dropdown">
-            <input ref={inputRef} onBlur={() => setIsShow(false)} />
+            <input
+                ref={inputRef}
+                onBlur={() => setIsShow(false)}
+                readOnly={true}
+            />
             <div
                 className={`dropdown__btn ${isShow ? 'active' : ''}`}
                 onClick={() => {
