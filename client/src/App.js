@@ -53,6 +53,7 @@ function App() {
                 path: '/',
                 secure: true,
                 host: 'qkmedia.herokuapp.com',
+                port: 443,
             });
             dispatch(setPeer(newPeer));
         }

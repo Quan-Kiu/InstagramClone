@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
     socketSever(socket);
 });
 
-ExpressPeerServer(http, { proxied: true, debug: true, path: '/', ssl: {} });
+ExpressPeerServer(http, { debug: true, path: '/' });
 
 routes(app);
 
