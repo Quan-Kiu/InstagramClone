@@ -117,10 +117,20 @@ const PostDetail = () => {
                     onClick={(e) => e.stopPropagation()}
                 >
                     <Row className="post-detail__content">
-                        <Col className="post-detail__media" md={7}>
+                        <Col
+                            className="post-detail__media"
+                            xl={7}
+                            lg={7}
+                            md={12}
+                        >
                             <Slice images={post.postDetail.images} />
                         </Col>
-                        <Col md={5} className="post-detail__infos">
+                        <Col
+                            xl={5}
+                            lg={5}
+                            md={12}
+                            className="post-detail__infos"
+                        >
                             <PostHeading
                                 post={post.postDetail}
                                 isDetailPage={true}

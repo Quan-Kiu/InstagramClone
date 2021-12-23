@@ -22,6 +22,16 @@
             width: 100% !important;
         }
     }
+    @include mobile {
+        &__content {
+            padding: 0 1rem;
+        }
+    }
+    @include sm-mobile {
+        &__content {
+            padding: 0;
+        }
+    }
     &__content {
         position: absolute;
         width: 50rem;

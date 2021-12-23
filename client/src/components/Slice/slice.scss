@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
 .media-post {
     overflow: hidden;
     position: relative;
@@ -43,6 +45,10 @@
         min-height: 50rem;
         position: relative;
         user-select: none;
+        @include tablet {
+            min-height: unset;
+        }
+
         video,
         img {
             flex-basis: 100%;
