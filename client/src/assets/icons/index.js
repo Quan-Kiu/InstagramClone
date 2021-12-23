@@ -27,7 +27,9 @@ import { ReactComponent as InformationIcon } from './information.svg';
 import { ReactComponent as VideoCallIcon } from './videocall.svg';
 import { ReactComponent as AudioCallIcon } from './audiocall.svg';
 import { ReactComponent as ImageIcon } from './image.svg';
+import { ReactComponent as PeoplesIcon } from './peoples.svg';
 export {
+    PeoplesIcon,
     ImageIcon,
     InformationIcon,
     CreateMessageIcon,

@@ -1,9 +1,32 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .suggestions {
     display: flex;
     justify-content: center;
+    &__search {
+        display: none;
+        @include tablet {
+            display: block;
+            margin-bottom: 2rem;
+            .search {
+                height: 4rem;
+                &__content {
+                    width: 100%;
+
+                    z-index: 1000;
+                }
+                input {
+                    background-color: white;
+                }
+            }
+        }
+    }
     &__container {
         width: 60rem;
-        margin: 4rem 0;
+        @include tablet {
+            margin: 0 1rem;
+        }
     }
     &__title {
         padding: 1rem 2rem;

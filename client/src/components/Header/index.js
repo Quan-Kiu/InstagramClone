@@ -6,6 +6,7 @@ import {
     ExploreIcon,
     LikeIcon,
     UnlikeIcon,
+    PeoplesIcon,
 } from '../../assets/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -39,6 +40,11 @@ const Header = (props) => {
             label: 'Home',
             icon: <HomeIcon />,
             path: '/',
+        },
+        {
+            label: 'Suggestions',
+            icon: <PeoplesIcon />,
+            path: '/suggestions',
         },
         {
             label: 'Message',
@@ -84,7 +90,7 @@ const Header = (props) => {
                             <li className={`nav-item`} key={index}>
                                 <Link
                                     onClick={link.handle}
-                                    className={`nav-link ${
+                                    className={`nav-link ${link.label} ${
                                         link.path === pathname ? 'active' : ''
                                     }`}
                                     to={link.path}

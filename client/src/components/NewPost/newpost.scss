@@ -1,3 +1,6 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .modal-create-post {
     height: 40rem;
     position: relative;
@@ -32,6 +35,7 @@
         overflow: hidden;
         border-radius: 1.2rem;
         background: white;
+
         .upload-media {
             position: relative;
             height: 40rem;
@@ -40,6 +44,18 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            @include tablet {
+                width: 35rem;
+            }
+            @include mobile {
+                width: 30rem;
+                height: 30rem;
+            }
+
+            @include mobile {
+                width: 30rem;
+                height: 30rem;
+            }
             svg {
                 width: 10rem;
                 height: 10rem;
@@ -68,8 +84,23 @@
             position: relative;
             width: 80rem;
             height: 45rem;
+            @include res(820px) {
+                width: 70rem;
+            }
+            @include tablet {
+                height: 90vh;
+                flex-direction: column;
+            }
 
             .media-post {
+                @include res(820px) {
+                    width: 40rem;
+                }
+
+                @include tablet {
+                    width: 100vw;
+                    padding: 0 1rem;
+                }
                 position: relative;
                 user-select: none;
                 width: 45rem;
@@ -113,10 +144,12 @@
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
+                    object-position: center;
                 }
             }
             .content-post {
                 flex: 1;
+
                 .actor {
                     padding: 2rem;
                     display: flex;
@@ -135,6 +168,9 @@
                 }
                 .content {
                     textarea {
+                        @include tablet {
+                            height: 10rem;
+                        }
                         height: 20rem;
                         width: 100%;
                         font-size: 1.6rem;
@@ -167,6 +203,9 @@
                             rgba($color: #000000, $alpha: 0.25);
                     }
                     &__item {
+                        @include tablet {
+                            padding: 0.5rem 2rem;
+                        }
                         padding: 1rem 2rem;
                         cursor: pointer;
                         font-size: 1.4rem;
@@ -179,6 +218,9 @@
             font-size: 1.5rem;
             font-weight: 600;
             opacity: 0.9;
+            @include sm-mobile {
+                font-size: 1.3rem;
+            }
             padding: 1rem 0;
             text-align: center;
             border-bottom: thin solid rgba($color: #000000, $alpha: 0.25);

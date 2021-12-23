@@ -12,7 +12,7 @@ const { ExpressPeerServer } = require('peer');
 
 // Middleware
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
@@ -26,12 +26,9 @@ io.on('connection', (socket) => {
     socketSever(socket);
 });
 
-const peerServer = ExpressPeerServer(http, { path: '/' });
-
-app.use('/peerjs', peerServer);
+ExpressPeerServer(http, { path: '/' });
 
 routes(app);
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => {

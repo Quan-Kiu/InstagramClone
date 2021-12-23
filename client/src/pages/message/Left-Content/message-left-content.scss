@@ -1,5 +1,14 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixin';
+
 .left-content {
     border: thin solid rgba(0, 0, 0, 0.1);
+
+    @include tablet {
+        &.hidden {
+            display: none;
+        }
+    }
 
     .heading {
         display: flex;

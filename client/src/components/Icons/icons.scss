@@ -1,3 +1,6 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .reactions {
     display: grid;
     grid-template-columns: repeat(4, 5rem);
@@ -19,6 +22,11 @@
         left: 0;
     }
     .icons__list {
+        @include tablet {
+            left: 0;
+            right: unset;
+            bottom: 3rem;
+        }
         bottom: 2rem;
         right: 2rem;
         padding: 0.5rem;

@@ -9,6 +9,19 @@
     .dropdown-divider {
         margin-top: 5rem;
     }
+
+    @include mobile {
+        .col-sm-8 {
+            margin-top: 2rem;
+            text-align: center;
+            .name {
+                flex-wrap: wrap;
+            }
+            & > * {
+                justify-content: center;
+            }
+        }
+    }
     .name {
         display: flex;
         align-items: center;

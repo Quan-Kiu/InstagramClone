@@ -1,8 +1,17 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .my-post__item {
     display: flex;
     height: 30rem;
     cursor: pointer;
     position: relative;
+    @include tablet {
+        height: 20rem;
+    }
+    @include mobile {
+        height: 15rem;
+    }
     &:hover {
         .counter {
             opacity: 1;

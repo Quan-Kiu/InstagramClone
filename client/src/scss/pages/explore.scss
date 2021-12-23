@@ -1,16 +1,39 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .explore {
     margin-bottom: 4rem;
+
     &__list {
         display: grid;
         width: 100%;
         height: 100%;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 3rem;
+        @include tablet {
+            grid-gap: 2rem;
+        }
+
+        @include mobile {
+            grid-gap: 1rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include sm-mobile {
+            grid-gap: 0.5rem !important;
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
     .my-post__item:nth-child(1) {
         grid-column-start: 2;
         grid-column-end: 4;
         grid-row: 1 / span 2;
         height: 63rem;
+        @include tablet {
+            height: 42rem;
+        }
+        @include mobile {
+            height: 30.5rem;
+            grid-column-end: unset;
+        }
     }
 }

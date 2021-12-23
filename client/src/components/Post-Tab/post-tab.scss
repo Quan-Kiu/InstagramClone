@@ -8,6 +8,24 @@
         justify-content: center;
         align-items: center;
         gap: 6rem;
+        @include tablet {
+            gap: 4rem;
+            .name {
+                min-width: none !important;
+            }
+        }
+        @include mobile {
+            gap: 2rem;
+            .name {
+                font-size: 1.2rem !important;
+            }
+        }
+        @include sm-mobile {
+            gap: 1rem;
+            .name {
+                font-size: 1.2rem !important;
+            }
+        }
 
         .name {
             min-width: 8.5rem;
@@ -37,6 +55,11 @@
             grid-template-columns: repeat(3, 1fr);
             @include tablet {
                 grid-template-columns: repeat(2, 1fr);
+                grid-gap: 2rem;
+            }
+            @include sm-mobile {
+                grid-template-columns: repeat(1, 1fr);
+                grid-gap: 2rem;
             }
 
             grid-gap: 3rem;

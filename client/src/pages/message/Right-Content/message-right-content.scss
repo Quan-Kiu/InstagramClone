@@ -1,9 +1,44 @@
+@import '../../../scss/variables';
+@import '../../../scss/mixin';
+
 .right-content {
     padding: 0;
     border: thin solid rgba(0, 0, 0, 0.1);
     height: 100%;
     display: flex;
     flex-direction: column;
+    @include tablet {
+        &__no-data {
+            display: none !important;
+        }
+        .center {
+            .message__list {
+                padding: 0 1rem !important;
+            }
+        }
+        .heading,
+        .bottom {
+            padding: 2rem 1rem !important;
+        }
+        .message-input {
+            svg {
+                flex-shrink: 0;
+            }
+        }
+    }
+
+    @include mobile {
+        .message-input {
+            gap: 1rem;
+            svg {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+        .message__createdAt {
+            font-size: 1rem;
+        }
+    }
 
     .heading {
         display: flex;
@@ -52,6 +87,7 @@
     }
     .center {
         flex: 1;
+        min-height: 40rem;
         max-height: 41rem;
         overflow: auto;
 

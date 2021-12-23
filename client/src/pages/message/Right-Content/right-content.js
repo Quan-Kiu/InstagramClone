@@ -195,7 +195,7 @@ const RightContent = (props) => {
                 />
             )}
             {conversation && conversation._id === action ? (
-                <div className="right-content">
+                <div className={`right-content`}>
                     <div className="heading">
                         <div className="avatar-message">
                             <img src={conversation.avatar} alt="" />

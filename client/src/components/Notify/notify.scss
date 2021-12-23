@@ -1,9 +1,26 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .notify {
     input {
         position: absolute;
         width: 0;
         height: 0;
         border: none;
+    }
+
+    @include tablet {
+        &__content {
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            position: fixed !important;
+            top: 7rem !important;
+            inset: 0;
+            padding: 0 2rem;
+            height: 100% !important;
+            width: 100% !important;
+        }
     }
     &__content {
         position: absolute;

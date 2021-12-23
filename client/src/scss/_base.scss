@@ -5,7 +5,7 @@
 .container {
     width: 936px;
     @include mobile {
-        width: 100vw;
+        width: 100%;
     }
 }
 .btn-follow {

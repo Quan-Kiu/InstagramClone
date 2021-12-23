@@ -1,3 +1,6 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .account-edit {
     background-color: white;
     border: thin solid #cccccc;
@@ -5,6 +8,9 @@
     .left-content {
         padding: 0;
         border-right: thin solid #cccccc;
+        @include tablet {
+            display: none;
+        }
         a {
             opacity: 0.9;
 
@@ -27,5 +33,49 @@
     }
     .right-content {
         padding: 2rem 3rem;
+        min-height: 40rem;
+        @include tablet {
+            padding: 2rem;
+        }
+        @include mobile {
+            padding: 1rem 2rem;
+        }
+        .tab-edit {
+            .form-group {
+                @include sm-desktop {
+                    padding: 0;
+                    label {
+                        width: 10rem;
+                    }
+                }
+                @include tablet {
+                    gap: 2rem;
+                    margin-top: 0.5rem;
+                    label {
+                        text-align: center;
+                    }
+                }
+                @include mobile {
+                    gap: 1rem;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: center;
+                    label {
+                        width: 100%;
+                    }
+                }
+            }
+            .form-group:nth-child(1) {
+                @include tablet {
+                    input {
+                        width: 100%;
+                        &::before {
+                            text-align: center;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

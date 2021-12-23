@@ -13,7 +13,9 @@ const LeftContent = (props) => {
 
     return (
         <>
-            <div className="left-content">
+            <div
+                className={`left-content ${action !== 'inbox' ? 'hidden' : ''}`}
+            >
                 <div className="heading">
                     <span>{auth.user.username}</span>
                     <CreateMessageIcon onClick={props.onCreateMessageClick} />

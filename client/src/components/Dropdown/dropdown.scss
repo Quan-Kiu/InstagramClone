@@ -1,3 +1,6 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .dropdown {
     cursor: pointer;
     margin: 0.5rem 1rem;
@@ -28,6 +31,10 @@
 
     .dropdown-menu {
         box-shadow: 0.1rem 0.1rem 1rem 0.5rem rgba($color: #000000, $alpha: 0.1);
+        @include tablet {
+            right: 0 !important;
+            left: unset;
+        }
         left: -10rem;
         margin-top: 1rem;
         -webkit-animation: swing-in-top-fwd 0.2s both;
