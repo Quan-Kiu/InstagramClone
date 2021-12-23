@@ -52,7 +52,6 @@ function App() {
             const newPeer = new Peer(undefined, {
                 host: '/',
                 path: '/',
-                port: 443,
                 secure: true,
             });
             dispatch(setPeer(newPeer));
