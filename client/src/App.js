@@ -50,6 +50,7 @@ function App() {
     useEffect(() => {
         if (auth.token) {
             const newPeer = new Peer(undefined, {
+                host: 'qkmedia.herokuapp.com',
                 path: '/',
                 secure: true,
             });

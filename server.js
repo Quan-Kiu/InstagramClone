@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
     socketSever(socket);
 });
 
-ExpressPeerServer(http, { debug: true, path: '/' });
+ExpressPeerServer(http, { debug: true, port });
 
 routes(app);
 
