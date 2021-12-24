@@ -11,12 +11,12 @@
     .media-control {
         position: absolute;
         inset: 0;
-        height: 5rem;
         top: 50%;
-        transform: translateY(-50%);
-        display: flex;
-        align-items: center;
         z-index: 1;
+        height: 5rem;
+        transform: translateY(-50%);
+        align-items: center;
+        pointer-events: none;
     }
     svg {
         position: absolute;
@@ -33,12 +33,12 @@
     }
 
     .prev-control {
-        z-index: 10;
         left: 1rem;
+        pointer-events: all;
     }
     .next-control {
+        pointer-events: all;
         right: 1rem;
-        z-index: 10;
     }
 
     .image__list {
@@ -54,6 +54,7 @@
 
         video,
         img {
+            position: relative;
             flex-basis: 100%;
             flex-shrink: 0;
             object-fit: contain;

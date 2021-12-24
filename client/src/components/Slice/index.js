@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { IconArrowLeft, IconArrowRight } from '../../assets/icons';
 import './slice.scss';
 
-const Slice = ({ images }, props) => {
+const Slice = ({ images, handle }) => {
     const [currentSlice, setCurrentSlice] = useState(0);
     const [indexImage, setIndexImage] = useState(0);
     const imagesRef = useRef(<div></div>);
@@ -21,9 +21,8 @@ const Slice = ({ images }, props) => {
 
     useEffect(() => {
         setIndexImage(-(currentSlice / imagesRef.current.offsetWidth));
-        props.handle &&
-            props.handle(-(currentSlice / imagesRef.current.offsetWidth));
-    }, [currentSlice, props]);
+        handle && handle(-(currentSlice / imagesRef.current.offsetWidth));
+    }, [currentSlice, handle]);
     return (
         <div className="media-post">
             {images.length > 1 && (

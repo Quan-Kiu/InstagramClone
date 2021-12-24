@@ -135,6 +135,7 @@ const PostItem = (props) => {
                     }}
                     isLiked={isLiked}
                     isSaved={isSaved}
+                    showIndexImage={true}
                     post={props.post}
                     indexImage={indexImage}
                 />
