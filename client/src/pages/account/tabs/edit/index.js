@@ -227,7 +227,6 @@ const Edit = (props) => {
                                     <Button
                                         disabled={!form.dirty}
                                         style={{
-                                            backgroundColor: '#B2DFFC',
                                             border: 'none',
                                             minWidth: '5rem',
                                             fontSize: '14px',

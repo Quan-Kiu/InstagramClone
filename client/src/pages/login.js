@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
-import Alert from '../components/Alert';
 import LoginForm from '../components/Forms/LoginForm';
 import Loading from '../components/Loading';
 import Logo from '../components/Logo';
 import { DISPLAY_PHONE_SLIDE } from '../constants/slide';
-import { handleFailed, handleSuccess, login } from '../redux/reducer/authSlice';
+import { handleFailed, login } from '../redux/reducer/authSlice';
 import '../scss/pages/login.scss';
 
 const Login = () => {
     const [active, setActive] = useState(0);
     const dispatch = useDispatch();
     const auth = useSelector((state) => state.auth);
+    const [error, setError] = useState('');
     const history = useHistory();
 
     useEffect(() => {
@@ -28,38 +28,22 @@ const Login = () => {
         };
     }, [active]);
 
-    const handleSubmit = (values) => {
+    const handleSubmit = async (values) => {
         const action = login(values);
-        dispatch(action);
-        history.push('/');
-    };
+        const res = await dispatch(action);
 
-    const handleCloseClick = () => {
-        if (auth.error) dispatch(handleFailed());
-        else {
-            dispatch(handleSuccess());
+        if (res.payload.message) {
+            setError(res.payload.message);
+            dispatch(handleFailed());
+        } else {
+            history.push('/');
         }
     };
 
     return (
         <>
             {auth.loading && <Loading homeLoading={true} />}
-            {auth.error && (
-                <Alert
-                    onCloseClick={handleCloseClick}
-                    title="Error"
-                    bg="bg-danger"
-                    message={auth.error}
-                />
-            )}
-            {auth.success && (
-                <Alert
-                    onCloseClick={handleCloseClick}
-                    title="Success"
-                    bg="bg-success"
-                    message={auth.success}
-                />
-            )}
+
             <div className="login">
                 <div className="login__media">
                     <div className="phone-image">
@@ -86,6 +70,11 @@ const Login = () => {
                     <div className="login__content__form">
                         <Logo />
                         <LoginForm onSubmit={handleSubmit} />
+                        {error && (
+                            <div className="login-error text-danger">
+                                {error}
+                            </div>
+                        )}
                     </div>
                     <div className="not-account">
                         <p>

@@ -1,11 +1,13 @@
 import { FastField, Form, Formik } from 'formik';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Button } from 'reactstrap';
+import { Button, Spinner } from 'reactstrap';
 import * as Yup from 'yup';
 import InputField from '../../custom-field/InputField';
+import { useSelector } from 'react-redux';
 
 const LoginForm = (props) => {
+    const auth = useSelector((state) => state.auth);
     const initialValues = {
         email: '',
         password: '',
@@ -14,7 +16,9 @@ const LoginForm = (props) => {
     const validationSchema = Yup.object().shape({
         email: Yup.string().required('Email không được để trống'),
 
-        password: Yup.string().required('Password không được để trống.').min(5),
+        password: Yup.string()
+            .required('Password không được để trống.')
+            .min(6, 'Mật khẩu ít nhất 6 ký tư.'),
     });
 
     return (
@@ -23,7 +27,7 @@ const LoginForm = (props) => {
             validationSchema={validationSchema}
             onSubmit={props.onSubmit}
         >
-            {() => {
+            {(form) => {
                 return (
                     <Form>
                         <FastField
@@ -39,7 +43,21 @@ const LoginForm = (props) => {
                             type="password"
                         />
 
-                        <Button type="submit">Đăng nhập</Button>
+                        <Button
+                            disabled={!form.isValid || !form.dirty}
+                            type="submit"
+                        >
+                            {auth.login.loading ? (
+                                <Spinner
+                                    animation="border"
+                                    size="md"
+                                    variant="secondary"
+                                    children=""
+                                />
+                            ) : (
+                                'Đăng nhập'
+                            )}
+                        </Button>
                     </Form>
                 );
             }}

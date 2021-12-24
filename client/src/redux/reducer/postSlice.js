@@ -233,6 +233,9 @@ const postSlice = createSlice({
                 ...state.postHome.posts,
                 ...action.payload.posts,
             ];
+            if (action.payload.total < 20) {
+                state.postHome.isOverPost = true;
+            }
         },
 
         [commnentPost.fulfilled]: (state, action) => {

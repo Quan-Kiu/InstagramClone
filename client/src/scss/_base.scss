@@ -8,6 +8,22 @@
         width: 100%;
     }
 }
+
+.invalid-feedback {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+button {
+    background-color: #0095f6;
+    &:focus {
+        box-shadow: none !important;
+    }
+    &:active {
+        background-color: #b2dffc !important;
+    }
+    font-weight: 600;
+}
 .btn-follow {
     min-width: 60px;
 }

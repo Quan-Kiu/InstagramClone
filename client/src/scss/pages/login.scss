@@ -32,7 +32,7 @@
     }
     &__content {
         &__form {
-            gap: 2rem;
+            gap: 1.5rem;
             background-color: $white-clr;
             padding: 3rem;
             text-align: center;
@@ -40,7 +40,7 @@
             display: flex;
             flex-direction: column;
             .form-group {
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
             }
             input {
                 height: 3.5rem;
@@ -53,20 +53,29 @@
             }
 
             button {
-                margin-top: 1rem;
-                height: 3.5rem;
+                height: 3rem;
                 outline: none;
                 border: none;
-                background-color: #b2dffc;
+                background-color: #0095f6 !important;
                 color: $white-clr;
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 border-radius: 0.5rem;
-                font-weight: 500;
-                &:hover {
-                    background-color: #b2dffc;
-                    color: $white-clr;
+                &:focus {
+                    box-shadow: none !important;
                 }
+                &:active {
+                    background-color: #b2dffc !important;
+                }
+                width: 100%;
+                font-weight: 600;
             }
+        }
+        .login-error {
+            font-size: 1.4rem;
+        }
+        .invalid-feedback {
+            margin-top: 1rem;
+            font-size: 1.2rem;
         }
 
         .not-account {

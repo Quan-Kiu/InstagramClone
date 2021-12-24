@@ -17,30 +17,34 @@ const PostsHome = (props) => {
     );
 
     const handleScroll = useCallback(async () => {
-        if (
-            window.innerHeight + window.pageYOffset >=
-            document.body.offsetHeight
-        ) {
-            if (!isLoading) {
-                setIsLoading(true);
-                const res = await dispatch(
-                    getPosts({ page: post.postHome.page + 1, limit: 20 })
-                );
-                if (res.payload.total > 0) {
-                    dispatch(updatePagePostHome());
-                    setIsLoading(false);
-                } else {
-                    window.removeEventListener('scroll', handleScroll);
-
-                    dispatch(
-                        setAlert({
-                            type: 'bottomAlert',
-                            text: 'Bạn đã xem hết bài viết.',
-                        })
+        if (!post.postHome.isOverPost) {
+            if (
+                window.innerHeight + window.pageYOffset >=
+                document.body.offsetHeight
+            ) {
+                if (!isLoading) {
+                    setIsLoading(true);
+                    const res = await dispatch(
+                        getPosts({ page: post.postHome.page + 1, limit: 20 })
                     );
-                    setLoadingComponent(<></>);
+                    if (res.payload.total > 0) {
+                        dispatch(updatePagePostHome());
+                        setIsLoading(false);
+                    } else {
+                        window.removeEventListener('scroll', handleScroll);
+
+                        dispatch(
+                            setAlert({
+                                type: 'bottomAlert',
+                                text: 'Bạn đã xem hết bài viết.',
+                            })
+                        );
+                        setLoadingComponent(<></>);
+                    }
                 }
             }
+        } else {
+            window.removeEventListener('scroll', handleScroll);
         }
     }, [isLoading, dispatch, post.postHome.page]);
 

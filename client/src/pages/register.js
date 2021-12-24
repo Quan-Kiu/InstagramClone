@@ -1,58 +1,29 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
-import Alert from '../components/Alert';
+import { Link } from 'react-router-dom';
 import RegisterForm from '../components/Forms/RegisterForm';
 import Logo from '../components/Logo';
-import {
-    handleFailed,
-    handleSuccess,
-    register,
-} from '../redux/reducer/authSlice';
-
-import { setAlert } from '../redux/reducer/alertSlice';
+import { register } from '../redux/reducer/authSlice';
 import '../scss/pages/register.scss';
 
 const Register = (props) => {
     const auth = useSelector((state) => state.auth);
     const dispatch = useDispatch();
-    const handleSubmitForm = (values) => {
+    const [alert, setAlert] = useState();
+    const handleSubmitForm = async (values) => {
         const action = register(values);
-        dispatch(action);
-    };
-    const history = useHistory();
 
-    useEffect(() => {
-        if (auth.token) {
-            history.push('/');
-        }
-    }, [auth.token, history]);
-
-    const handleCloseClick = () => {
-        if (auth.error) dispatch(handleFailed());
-        else {
-            dispatch(handleSuccess());
+        const res = await dispatch(action);
+        if (res.error) {
+            setAlert({ type: 'error', text: res.payload.message });
+        } else {
+            setAlert({ type: 'success', text: res.payload.message });
         }
     };
 
     return (
         <>
-            {auth.error && (
-                <Alert
-                    onCloseClick={handleCloseClick}
-                    title="Error"
-                    bg="bg-danger"
-                    message={auth.error}
-                />
-            )}
-            {auth.success && (
-                <Alert
-                    onCloseClick={handleCloseClick}
-                    title="Success"
-                    bg="bg-success"
-                    message={auth.success}
-                />
-            )}
             <div className="register">
                 <div className="register__content">
                     <div className="register__content__form">
@@ -80,6 +51,17 @@ const Register = (props) => {
                             onSubmit={handleSubmitForm}
                             loading={auth.loading}
                         />
+                        {alert && (
+                            <div
+                                className={`register-error ${
+                                    alert.type === 'success'
+                                        ? 'text-success'
+                                        : 'text-danger'
+                                }`}
+                            >
+                                {alert.text}
+                            </div>
+                        )}
                         <div className="rules opacity-75">
                             Bằng cách đăng ký, bạn đồng ý với Điều khoản, Chính
                             sách dữ liệu và Chính sách cookie của chúng tôi.

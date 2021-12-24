@@ -22,8 +22,7 @@ const Password = (props) => {
         oldPassword: Yup.string()
             .required('Mật khẩu cũ không được để trống.')
             .trim('Không được sử dụng dấu khoảng trắng.')
-            .max(30)
-            .min(6),
+            .min(6, 'Mật khẩu ít nhất 6 ký tư.'),
         password: Yup.string()
             .min(6)
             .when('oldPassword', (oldPassword, field) =>
@@ -110,12 +109,10 @@ const Password = (props) => {
                             <FormGroup>
                                 <label></label>
                                 <Button
-                                    disabled={!form.dirty}
+                                    disabled={!form.dirty || !form.isValid}
                                     style={{
-                                        backgroundColor: '#B2DFFC',
                                         border: 'none',
                                         fontSize: '14px',
-                                        fontWeight: '500',
                                     }}
                                     type="submit"
                                 >

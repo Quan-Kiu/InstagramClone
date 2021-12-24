@@ -6,6 +6,7 @@ const initialState = {
     token: '',
     user: {},
     loading: false,
+    login: {},
 };
 
 export const login = createAsyncThunk(
@@ -90,17 +91,17 @@ const authSlice = createSlice({
     },
     extraReducers: {
         [login.pending]: (state) => {
-            state.loading = true;
+            state.login.loading = true;
         },
         [login.rejected]: (state, action) => {
-            state.loading = false;
+            state.login.loading = false;
             state.error = action.payload.message;
         },
         [login.fulfilled]: (state, action) => {
             state.token = action.payload.accessToken;
             state.user = action.payload.user;
             localStorage.setItem('token', state.token);
-            state.loading = false;
+            state.login.loading = false;
         },
         [update.pending]: (state) => {
             state.loading = true;
@@ -121,7 +122,6 @@ const authSlice = createSlice({
             state.error = action.payload.message;
         },
         [register.fulfilled]: (state, action) => {
-            state.success = action.payload.message;
             state.loading = false;
         },
 

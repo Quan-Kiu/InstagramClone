@@ -31,7 +31,7 @@ const RegisterForm = (props) => {
             validationSchema={validationSchema}
             onSubmit={props.onSubmit}
         >
-            {() => {
+            {(form) => {
                 return (
                     <Form>
                         <FastField
@@ -57,7 +57,7 @@ const RegisterForm = (props) => {
                             type="password"
                             placeholder="Nhập mật khẩu"
                         />
-                        <Button type="submit">
+                        <Button disabled={!form.isValid} type="submit">
                             {props.loading ? (
                                 <Spinner
                                     animation="border"

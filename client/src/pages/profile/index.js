@@ -279,7 +279,7 @@ const Profile = () => {
                                             </>
                                         ) : (
                                             <Button
-                                                className="btn-follow bg-primary text-white py-2 px-5 opacity-50"
+                                                className="btn-follow bg-primary text-white py-2 px-5 opacity-75"
                                                 handle={() =>
                                                     handleFollow(
                                                         profile.data._id

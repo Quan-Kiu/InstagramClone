@@ -6,6 +6,10 @@
     margin-top: -4rem;
     margin-bottom: 5rem;
 
+    .register-error {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
     &__content {
         width: 35rem;
         &__sub-logo {
@@ -40,13 +44,13 @@
         }
         &__form {
             background-color: $white-clr;
-            padding: 2rem 4rem;
+            padding: 1.5rem 4rem;
             text-align: center;
             border: thin solid rgba(0, 0, 0, 0.2);
             display: flex;
             flex-direction: column;
             .form-group {
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
             }
 
             input {
@@ -70,9 +74,15 @@
                 font-weight: 500;
             }
             button[type='submit'] {
-                background-color: #b2dffc;
+                background-color: #0095f6;
                 margin-bottom: 2rem;
                 width: 100%;
+                &:focus {
+                    box-shadow: none;
+                }
+                &:active {
+                    background-color: #b2dffc;
+                }
             }
 
             .rules {

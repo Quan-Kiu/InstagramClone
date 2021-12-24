@@ -39,7 +39,10 @@ const CallModal = (props) => {
     const playStream = async (tag, stream) => {
         let video = tag;
         video.srcObject = stream;
-        await video.play().catch((error) => console.log(error));
+        await video
+            .play()
+            .then(() => video.play())
+            .catch((error) => console.log(error));
     };
 
     const handleAnswers = async (action) => {

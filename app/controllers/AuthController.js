@@ -11,7 +11,10 @@ const AuthController = {
             if (user_name)
                 return res
                     .status(400)
-                    .json({ message: 'Tên tài khoản đã tồn tại.' });
+                    .json({
+                        message:
+                            'Rất tiếc, tên tài khoản này đã tồn tại. Vui lòng sử dụng tên tài khoản khác.',
+                    });
             if (username.length < 6)
                 return res.status(400).json({
                     message: 'Tên tài khoản nhiều hơn 6 ký tự.',
@@ -31,9 +34,10 @@ const AuthController = {
 
             const user_email = await Users.findOne({ email });
             if (user_email)
-                return res
-                    .status(400)
-                    .json({ message: 'Email này đã tồn tại.' });
+                return res.status(400).json({
+                    message:
+                        'Rất tiếc, email này đã tồn tại. Vui lòng sử dụng email khác.',
+                });
 
             if (password.length < 6)
                 return res.status(400).json({
@@ -81,13 +85,15 @@ const AuthController = {
             );
             if (!user)
                 return res.status(400).json({
-                    message: 'Email không tồn tại.',
+                    message:
+                        'Rất tiếc, email của bạn không đúng. Vui lòng kiểm tra lại email.',
                 });
 
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch)
                 return res.status(400).json({
-                    message: 'Sai mật khẩu.',
+                    message:
+                        'Rất tiếc, mật khẩu của bạn không đúng. Vui lòng kiểm tra lại mật khẩu.',
                 });
 
             const accessToken = createAccessToken({ id: user._id });
