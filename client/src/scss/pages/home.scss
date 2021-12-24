@@ -1,8 +1,18 @@
+@import '../../scss/variables';
+@import '../../scss/mixin';
+
 .home {
     .posts-home {
         position: relative;
     }
     .side-bar {
         padding-left: 2.5rem;
+        margin-top: 2rem;
+        @include tablet {
+            padding: 0;
+            .copyright {
+                text-align: center !important;
+            }
+        }
     }
 }

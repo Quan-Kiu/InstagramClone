@@ -26,15 +26,28 @@
         width: 60rem;
         @include tablet {
             margin: 0 1rem;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
     }
     &__title {
         padding: 1rem 2rem;
         font-size: 1.6rem;
         font-weight: 600;
+        margin-right: auto;
     }
     &__list {
         padding: 1rem 0;
         background-color: white;
+
+        @include tablet {
+            width: 80vw;
+        }
+        @include mobile {
+            width: 95vw;
+        }
     }
 }

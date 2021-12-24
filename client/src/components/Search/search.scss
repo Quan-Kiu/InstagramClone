@@ -14,7 +14,10 @@
 
     @include tablet {
         margin: 0;
-        width: 100%;
+        width: 80vw;
+    }
+    @include mobile {
+        width: 95vw;
     }
 
     input {

@@ -13,12 +13,16 @@ const Suggestions = (props) => {
                     <div className="suggestions__title">Tìm kiếm</div>
                     <Search />
                 </div>
-                <div className="suggestions__title">Gợi ý</div>
-                <div className="suggestions__list">
-                    {user.suggestions &&
-                        user.suggestions.users.map((item, index) => {
-                            return <FollowItem key={index} follower={item} />;
-                        })}
+                <div className="suggestions__content">
+                    <div className="suggestions__title">Gợi ý</div>
+                    <div className="suggestions__list">
+                        {user.suggestions &&
+                            user.suggestions.users.map((item, index) => {
+                                return (
+                                    <FollowItem key={index} follower={item} />
+                                );
+                            })}
+                    </div>
                 </div>
             </div>
         </div>

@@ -92,7 +92,8 @@
         max-height: 41rem;
         overflow: auto;
         @include tablet {
-            height: 100%;
+            min-height: 45rem;
+            max-height: 45rem;
         }
 
         .message__list {
