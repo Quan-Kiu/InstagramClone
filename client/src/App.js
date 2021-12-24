@@ -17,7 +17,6 @@ import BottomAlert from './components/BottomAlert';
 import CallModal from './components/CallModal';
 import Peer from 'peerjs';
 import { setPeer } from './redux/reducer/peerSlice';
-import Suggestions from './pages/suggestions';
 
 function App() {
     const { auth, alert, call } = useSelector((state) => state);
