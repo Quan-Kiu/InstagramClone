@@ -51,6 +51,7 @@ function App() {
         if (auth.token) {
             const newPeer = new Peer(undefined, {
                 path: '/',
+                secure: true,
             });
             dispatch(setPeer(newPeer));
         }

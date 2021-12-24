@@ -15,6 +15,7 @@ const CallModal = (props) => {
     const call = useSelector((state) => state.call);
     const auth = useSelector((state) => state.auth);
     const peer = useSelector((state) => state.peer);
+
     const socket = useSelector((state) => state.socket);
     const dispatch = useDispatch();
     const [callTimer, setCallTimer] = useState(0);
@@ -26,6 +27,10 @@ const CallModal = (props) => {
     const [hiddenModal, setHiddenModal] = useState(false);
 
     const openStream = (video) => {
+        navigator.mediaDevices.getUserMedia =
+            navigator.mediaDevices.getUserMedia ||
+            navigator.mediaDevices.webkitGetUserMedia ||
+            navigator.mediaDevices.mozGetUserMedia;
         const config = { audio: true, video };
         return navigator.mediaDevices.getUserMedia(config);
     };
