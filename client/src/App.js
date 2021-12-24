@@ -49,11 +49,11 @@ function App() {
     useEffect(() => {
         if (auth.token) {
             const newPeer = new Peer(undefined, {
-                key="peerjs",
+                key: 'peerjs',
                 path: '/',
                 debug: 2,
-                secure: process.env.REACT_APP_ENV === 'PRODUCTION'?true:false,
-
+                secure:
+                    process.env.REACT_APP_ENV === 'PRODUCTION' ? true : false,
             });
             dispatch(setPeer(newPeer));
         }
