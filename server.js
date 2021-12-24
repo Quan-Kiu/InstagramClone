@@ -26,7 +26,10 @@ io.on('connection', (socket) => {
     socketSever(socket);
 });
 
-ExpressPeerServer(http, { path: '/' });
+const peerServer = ExpressPeerServer(http, {
+    allow_discovery: true,
+});
+app.use('/peerjs', peerServer);
 
 routes(app);
 if (process.env.NODE_ENV === 'production') {

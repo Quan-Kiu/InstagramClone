@@ -50,8 +50,9 @@ function App() {
     useEffect(() => {
         if (auth.token) {
             const newPeer = new Peer(undefined, {
-                path: '/',
-                secure: true,
+                host: '/',
+                port: 443,
+                path: '/peerjs',
             });
             dispatch(setPeer(newPeer));
         }

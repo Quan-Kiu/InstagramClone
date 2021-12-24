@@ -32,13 +32,14 @@ const CallModal = (props) => {
             navigator.mediaDevices.webkitGetUserMedia ||
             navigator.mediaDevices.mozGetUserMedia;
         const config = { audio: true, video };
+
         return navigator.mediaDevices.getUserMedia(config);
     };
 
-    const playStream = (tag, stream) => {
+    const playStream = async (tag, stream) => {
         let video = tag;
         video.srcObject = stream;
-        video.play();
+        await video.play().catch((error) => console.log(error));
     };
 
     const handleAnswers = async (action) => {
@@ -82,19 +83,21 @@ const CallModal = (props) => {
 
             dispatch(setCall(null));
         } else {
-            openStream(call.data.video).then((stream) => {
-                playStream(myVideo.current, stream);
-                const track = stream.getTracks();
-                setTracks(track);
-
-                const newCall = peer.data.call(call.data.peerId, stream);
-                newCall.on('stream', function (remoteStream) {
-                    playStream(friendVideo.current, remoteStream);
-                });
-                setCallTimer(0);
-                setAnswer(true);
-                setNewCall(newCall);
-            });
+            openStream(call.data.video).then(
+                (stream) => {
+                    playStream(myVideo.current, stream);
+                    const track = stream.getTracks();
+                    setTracks(track);
+                    const newCall = peer.data.call(call.data.peerId, stream);
+                    newCall.on('stream', function (remoteStream) {
+                        playStream(friendVideo.current, remoteStream);
+                    });
+                    setCallTimer(0);
+                    setAnswer(true);
+                    setNewCall(newCall);
+                },
+                (error) => console.log(error)
+            );
         }
     };
 
@@ -125,23 +128,26 @@ const CallModal = (props) => {
 
     useEffect(() => {
         peer.data.on('call', (newCall) => {
-            openStream(call.data.video).then((stream) => {
-                if (myVideo.current) {
-                    playStream(myVideo.current, stream);
-                }
-                const track = stream.getTracks();
-                setTracks(track);
-
-                newCall.answer(stream);
-                newCall.on('stream', function (remoteStream) {
-                    if (friendVideo.current) {
-                        playStream(friendVideo.current, remoteStream);
+            openStream(call.data.video).then(
+                (stream) => {
+                    if (myVideo.current) {
+                        playStream(myVideo.current, stream);
                     }
-                });
-                setCallTimer(0);
-                setAnswer(true);
-                setNewCall(newCall);
-            });
+                    const track = stream.getTracks();
+                    setTracks(track);
+
+                    newCall.answer(stream);
+                    newCall.on('stream', function (remoteStream) {
+                        if (friendVideo.current) {
+                            playStream(friendVideo.current, remoteStream);
+                        }
+                    });
+                    setCallTimer(0);
+                    setAnswer(true);
+                    setNewCall(newCall);
+                },
+                (err) => console.log(err)
+            );
         });
         return () => peer.data.removeListener('call');
     }, [peer.data, call.data.video]);
