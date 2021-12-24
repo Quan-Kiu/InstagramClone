@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import {
     DirectIcon,
     MoreIcon,
@@ -204,7 +204,11 @@ const RightContent = (props) => {
                             )}
                         </div>
                         <span className="username-messenger">
-                            {conversation.username}
+                            <Link to={`/profile?id=${conversation._id}`}>
+                                {' '}
+                                {conversation.username}
+                            </Link>
+
                             {conversation.isOnline && (
                                 <div className="online">đang hoạt động</div>
                             )}

@@ -60,7 +60,7 @@ const AuthController = {
             await newUser.save();
 
             return res.status(201).json({
-                message: 'Tạo tài khoản thành cống, vui lòng đăng nhập.',
+                message: 'Tạo tài khoản thành công, vui lòng đăng nhập.',
                 accessToken,
                 user: {
                     ...newUser._doc,

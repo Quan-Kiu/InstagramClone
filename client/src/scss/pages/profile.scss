@@ -83,4 +83,13 @@
         font-size: 1.6rem;
         white-space: pre-wrap;
     }
+
+    .footer {
+        @include tablet {
+            .footer__link {
+                gap: 1rem;
+                font-size: 1.2rem;
+            }
+        }
+    }
 }
