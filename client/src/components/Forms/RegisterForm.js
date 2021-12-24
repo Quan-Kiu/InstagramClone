@@ -16,12 +16,13 @@ const RegisterForm = (props) => {
         email: Yup.string().required('Email không được để trống'),
         fullname: Yup.string()
             .required('Tên đầy đủ không được để trống')
-            .min(5)
-            .max(30),
+            .min(6, 'Tên đầy đủ  ít nhất 6 ký tư.')
+            .max(30, 'Tên đầy đủ  nhiều nhất 30 ký tư.'),
+
         username: Yup.string()
             .required('Tên người dùng không được để trống')
-            .min(5)
-            .max(25),
+            .min(6, 'Tên người dùng ít nhất 6 ký tư.')
+            .max(30, 'Tên người dùng nhiều nhất 30 ký tư.'),
         password: Yup.string().required('Mật khẩu không được để trống').min(6),
     });
     return (

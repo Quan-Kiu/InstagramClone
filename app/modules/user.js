@@ -34,12 +34,12 @@ const userSchema = new mongoose.Schema(
         avatar: {
             type: 'String',
             default:
-                'https://res.cloudinary.com/quankiu/image/upload/v1637675153/qmedia/default-avatar_ss1s8w.png',
+                'https://res.cloudinary.com/quankiu/image/upload/v1640319328/qkmedia/default-avatar_hsejek.png',
         },
 
         role: {
             type: 'String',
-            default: 'admin',
+            default: 'member',
         },
 
         gender: {

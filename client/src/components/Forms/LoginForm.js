@@ -14,10 +14,7 @@ const LoginForm = (props) => {
     const validationSchema = Yup.object().shape({
         email: Yup.string().required('Email không được để trống'),
 
-        password: Yup.string()
-            .required('This field is required')
-            .min(5)
-            .max(25),
+        password: Yup.string().required('Password không được để trống.').min(5),
     });
 
     return (
