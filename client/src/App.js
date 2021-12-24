@@ -66,17 +66,7 @@ function App() {
                 {auth.token && <Header />}
                 {auth.token && <SocketClient />}
 
-                <Route
-                    exact
-                    path="/"
-                    component={
-                        auth.user.following <= 0
-                            ? Suggestions
-                            : auth.token
-                            ? Home
-                            : Login
-                    }
-                />
+                <Route exact path="/" component={auth.token ? Home : Login} />
                 <Route exact path="/:page/:action" component={PageRender} />
                 <Route exact path="/:page" component={PageRender} />
             </div>
