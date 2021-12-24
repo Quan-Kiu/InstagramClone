@@ -6,6 +6,7 @@
     box-shadow: inset 1px 2px 5px 1px rgba(0, 0, 0, 0.05);
     height: 100%;
     display: flex;
+    z-index: 1;
 
     .media-control {
         position: absolute;
@@ -15,7 +16,7 @@
         transform: translateY(-50%);
         display: flex;
         align-items: center;
-        z-index: 10;
+        z-index: 1;
     }
     svg {
         position: absolute;
@@ -32,10 +33,12 @@
     }
 
     .prev-control {
+        z-index: 10;
         left: 1rem;
     }
     .next-control {
         right: 1rem;
+        z-index: 10;
     }
 
     .image__list {
