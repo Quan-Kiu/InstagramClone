@@ -1,7 +1,7 @@
 {
     "name": "client",
     "version": "0.1.0",
-    "proxy": "http://qkmedia.herokuapp.com/",
+    "proxy": "/",
     "private": true,
     "dependencies": {
         "@reduxjs/toolkit": "^1.6.2",

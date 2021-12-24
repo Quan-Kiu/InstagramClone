@@ -57,7 +57,10 @@ const RegisterForm = (props) => {
                             type="password"
                             placeholder="Nhập mật khẩu"
                         />
-                        <Button disabled={!form.isValid} type="submit">
+                        <Button
+                            disabled={!form.isValid || !form.dirty}
+                            type="submit"
+                        >
                             {props.loading ? (
                                 <Spinner
                                     animation="border"
