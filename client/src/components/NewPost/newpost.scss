@@ -88,7 +88,7 @@
                 width: 70rem;
             }
             @include tablet {
-                height: 90vh;
+                height: 95vh;
                 flex-direction: column;
             }
 
@@ -99,6 +99,7 @@
 
                 @include tablet {
                     width: 100vw;
+                    height: 35rem;
                     padding: 0 1rem;
                 }
                 position: relative;
@@ -147,13 +148,14 @@
                     position: absolute;
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    object-fit: contain;
                     object-position: center;
                 }
             }
             .content-post {
                 flex: 1;
-
+                display: flex;
+                flex-direction: column;
                 .actor {
                     padding: 2rem;
                     display: flex;
@@ -171,11 +173,14 @@
                     }
                 }
                 .content {
+                    flex: 1;
                     textarea {
                         @include tablet {
                             height: 10rem;
                         }
+
                         height: 20rem;
+
                         width: 100%;
                         font-size: 1.6rem;
                         border: none;
@@ -201,7 +206,7 @@
                     border-bottom: solid thin
                         rgba($color: #000000, $alpha: 0.25);
 
-                    margin-top: 1rem;
+                    margin: 1rem 0;
                     .more__item + .more__item {
                         border-top: solid thin
                             rgba($color: #000000, $alpha: 0.25);
