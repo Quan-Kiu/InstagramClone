@@ -35,9 +35,6 @@ routes(app);
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
     app.get('*', (req, res) => {
-        if (req.protocol == 'http') {
-            res.redirect('https://' + req.get('host') + req.originalUrl);
-        }
         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     });
 }
