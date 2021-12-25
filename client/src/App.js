@@ -52,7 +52,8 @@ function App() {
                 key: 'peerjs',
                 path: '/',
                 debug: 2,
-                secure: true,
+                secure:
+                    process.env.REACT_APP_ENV === 'PRODUCTION' ? true : false,
             });
             dispatch(setPeer(newPeer));
         }
