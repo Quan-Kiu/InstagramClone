@@ -1,10 +1,8 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-    baseURL:
-        process.env.REACT_APP_ENV === 'PRODUCTION'
-            ? '/'
-            : 'http://qkmedia.herokuapp.com',
+    baseURL: '/',
+
     headers: {
         'content-type': 'application/json',
     },

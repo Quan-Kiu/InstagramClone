@@ -53,7 +53,7 @@ function App() {
                 path: '/',
                 debug: 2,
                 secure:
-                    process.env.REACT_APP_ENV === 'PRODUCTION' ? true : false,
+                    process.env.REACT_APP_ENV === 'production' ? true : false,
             });
             dispatch(setPeer(newPeer));
         }
