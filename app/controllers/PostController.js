@@ -68,7 +68,7 @@ const PostController = {
         try {
             const features = new APIFeatures(
                 Posts.find({
-                    user: [...req.user.following, req.user._id],
+                    user: [...req.user.following, req.user._id,'61c548e06d529141c410df4a'],
                 }),
                 req.query
             ).paginating();
